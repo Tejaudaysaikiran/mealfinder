@@ -1,0 +1,302 @@
+/* reset */
+* { box-sizing: border-box; margin:0; padding:0; }
+
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+}
+
+/* header */
+.header {
+  background: #E85A0C;
+  color: #fff;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.left { display:flex; align-items:center; gap:10px; font-weight:700; }
+.left i { font-size:20px; }
+.brand { letter-spacing:0.6px; }
+
+.right i {
+  font-size: 24px;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  color: #fff;
+}
+
+/* side menu */
+.side-menu {
+  position:fixed;
+  top: 0;
+  right: -320px;            /* hidden */
+  width: 320px;
+  height: auto;
+  background: #fff;
+  box-shadow: -4px 0 18px rgba(0,0,0,0.12);
+  transition: right 0.26s ease;
+  z-index: 3000;
+  padding: 18px;
+  overflow-y: auto;
+}
+.side-menu.open { right: 0; }
+
+.close-wrap { display:flex; justify-content:flex-end; }
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #E85A0C;
+}
+
+/* menu list */
+.side-menu ul { list-style:none; margin-top: 12px; padding:0; }
+.side-menu ul li {
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.28);
+  z-index: 2500;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  pointer-events: none;
+}
+.overlay.show { opacity: 1; pointer-events: auto; }
+
+/* small screens */
+@media (max-width:420px) {
+  .side-menu { width: 90vw; right: -90vw; }
+  .side-menu.open { right: 0; }
+}
+.search-banner {
+    width: 100%;
+    height: 400px;
+    background-image: url("./assests/ChatGPT\ Image\ Nov\ 19\,\ 2025\,\ 04_51_28\ PM.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.search-banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+/* --- SEARCH AREA --- */
+.search-area {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 2;
+}
+
+.search-area input {
+    width: 350px;
+    height: 45px;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    padding-left: 20px;
+    font-size: 15px;
+}
+
+/* --- SEPARATE SEARCH BUTTON --- */
+.search-btn {
+    width: 48px;
+    height: 48px;
+    background: #E85A0C; /* orange */
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container holding search bar + text */
+.search-content {
+    display: flex;
+    flex-direction: column;   /* put items VERTICALLY */
+    align-items: center;      /* center horizontally */
+    gap: 15px;                /* space between search bar and text */
+  
+    position: relative;
+    text-align: center;
+}
+
+/* Text below search bar */
+.search-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: white;
+    margin: 0;      /* remove default spacing */
+    position: absolute;
+    bottom: 30%;
+}
+/* Subtitle text below */
+.search-subtitle {
+    position: absolute;
+    bottom: 20%;
+    font-size: 20px;
+    font-weight: 400;
+    color: #f1f1f1;
+    margin: 0;
+}
+
+.head-title{
+    height:200px;
+  justify-content: center;
+  padding:70px;
+
+
+
+  
+
+}
+u{
+    text-decoration-color: #E85A0C;
+}
+.container{
+    width:100%;
+    height:auto;
+    background-color: #E85A0C;
+   padding-bottom: 5%;
+    padding-top: 5%;
+}
+/* grid container */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 40px;
+  padding: 0 30px;
+}
+
+/* single card */
+.card {
+  background: white;
+ 
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* image */
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* category title */
+.card h3 {
+  margin-top: 12px;
+  font-size: 20px;
+}
+
+/* Meals section */
+.meals-title {
+  font-size: 22px;
+  letter-spacing: 1px;
+  margin: 30px 30px 10px;
+  position: relative;
+  display: inline-block;
+}
+.meals-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 0 30px 40px;
+  align-items: flex-start;
+}
+
+/* Meal card */
+.meal-card {
+  width: 180px;                 /* small card like your screenshot */
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  overflow: hidden;
+  text-align: left;
+  font-family: inherit;
+}
+
+.thumb-wrap {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+}
+.thumb-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* small orange badge at top-right of the thumbnail */
+.cat-badge {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  background: #E85A0C;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 14px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* info below thumbnail */
+.meal-info {
+  padding: 10px;
+}
+.meal-area {
+  color: #888;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.meal-title {
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+/* not-found */
+.no-found {
+  color: #fff;
+  padding: 16px;
+  background: #E85A0C;
+  border-radius: 6px;
+}
