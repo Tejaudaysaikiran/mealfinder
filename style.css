@@ -1,5 +1,5 @@
 /* reset */
-* { box-sizing: border-box; margin:0; padding:0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   font-family: Arial, sans-serif;
@@ -17,9 +17,9 @@ body {
   padding: 0 16px;
 }
 
-.left { display:flex; align-items:center; gap:10px; font-weight:700; }
-.left i { font-size:20px; }
-.brand { letter-spacing:0.6px; }
+.left { display: flex; align-items: center; gap: 10px; font-weight: 700; }
+.left i { font-size: 20px; }
+.brand { letter-spacing: 0.6px; }
 
 .right i {
   font-size: 24px;
@@ -31,11 +31,11 @@ body {
 
 /* side menu */
 .side-menu {
-  position:fixed;
+  position: fixed;
   top: 0;
-  right: -320px;            /* hidden */
+  right: -320px;           /* hidden by default */
   width: 320px;
-  height: auto;
+  height: 100vh;
   background: #fff;
   box-shadow: -4px 0 18px rgba(0,0,0,0.12);
   transition: right 0.26s ease;
@@ -45,7 +45,7 @@ body {
 }
 .side-menu.open { right: 0; }
 
-.close-wrap { display:flex; justify-content:flex-end; }
+.close-wrap { display: flex; justify-content: flex-end; }
 .close-btn {
   background: none;
   border: none;
@@ -55,7 +55,7 @@ body {
 }
 
 /* menu list */
-.side-menu ul { list-style:none; margin-top: 12px; padding:0; }
+.side-menu ul { list-style: none; margin-top: 12px; padding: 0; }
 .side-menu ul li {
   padding: 12px 0;
   border-bottom: 1px solid #eee;
@@ -75,119 +75,100 @@ body {
 }
 .overlay.show { opacity: 1; pointer-events: auto; }
 
-/* small screens */
-@media (max-width:420px) {
-  .side-menu { width: 90vw; right: -90vw; }
-  .side-menu.open { right: 0; }
-}
+/* search banner
+   NOTE: put your hero file in ./assets/hero.jpg (or change the filename below) */
 .search-banner {
-    width: 100%;
-    height: 400px;
-    background-image: url("./assests/ChatGPT\ Image\ Nov\ 19\,\ 2025\,\ 04_51_28\ PM.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    position: relative;
+  width: 100%;
+  height: 400px;
+  background-image: url("./assests/ChatGPT\ Image\ Nov\ 19\,\ 2025\,\ 04_51_28\ PM.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .search-banner::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.25);
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
 }
 
 /* --- SEARCH AREA --- */
 .search-area {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    z-index: 2;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 2;
 }
 
 .search-area input {
-    width: 350px;
-    height: 45px;
-    border-radius: 50px;
-    border: none;
-    outline: none;
-    padding-left: 20px;
-    font-size: 15px;
+  width: 350px;
+  height: 45px;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  padding-left: 20px;
+  font-size: 15px;
 }
 
-/* --- SEPARATE SEARCH BUTTON --- */
+/* search button */
 .search-btn {
-    width: 48px;
-    height: 48px;
-    background: #E85A0C; /* orange */
-    border: none;
-    border-radius: 50%;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Container holding search bar + text */
-.search-content {
-    display: flex;
-    flex-direction: column;   /* put items VERTICALLY */
-    align-items: center;      /* center horizontally */
-    gap: 15px;                /* space between search bar and text */
-  
-    position: relative;
-    text-align: center;
-}
-
-/* Text below search bar */
-.search-title {
-    font-size: 28px;
-    font-weight: 600;
-    color: white;
-    margin: 0;      /* remove default spacing */
-    position: absolute;
-    bottom: 30%;
-}
-/* Subtitle text below */
-.search-subtitle {
-    position: absolute;
-    bottom: 20%;
-    font-size: 20px;
-    font-weight: 400;
-    color: #f1f1f1;
-    margin: 0;
-}
-
-.head-title{
-    height:200px;
+  width: 48px;
+  height: 48px;
+  background: #E85A0C;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
   justify-content: center;
-  padding:70px;
-
-
-
-  
-
+  align-items: center;
 }
-u{
-    text-decoration-color: #E85A0C;
+
+/* search text */
+.search-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+  position: absolute;
+  bottom: 30%;
+  text-align: center;
 }
-.container{
-    width:100%;
-    height:auto;
-    background-color: #E85A0C;
-   padding-bottom: 5%;
-    padding-top: 5%;
+.search-subtitle {
+  position: absolute;
+  bottom: 20%;
+  font-size: 20px;
+  font-weight: 400;
+  color: #f1f1f1;
+  margin: 0;
 }
-/* grid container */
+
+/* header/title */
+.head-title {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 70px;
+}
+u { text-decoration-color: #E85A0C; }
+
+.container {
+  width: 100%;
+  height: auto;
+ 
+  padding-bottom: 5%;
+  padding-top: 5%;
+}
+
+/* categories grid */
 .cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -195,21 +176,17 @@ u{
   padding: 0 30px;
 }
 
-/* single card */
+/* category card */
 .card {
   background: white;
- 
   padding: 15px;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   transition: 0.3s ease;
+  border-radius: 10px;
 }
+.card:hover { transform: translateY(-5px); }
 
-.card:hover {
-  transform: translateY(-5px);
-}
-
-/* image */
 .card img {
   width: 100%;
   height: 180px;
@@ -217,13 +194,12 @@ u{
   border-radius: 10px;
 }
 
-/* category title */
 .card h3 {
   margin-top: 12px;
   font-size: 20px;
 }
 
-/* Meals section */
+/* Meals section (cards above categories) */
 .meals-title {
   font-size: 22px;
   letter-spacing: 1px;
@@ -241,19 +217,21 @@ u{
 
 /* Meal card */
 .meal-card {
-  width: 180px;                 /* small card like your screenshot */
+  width: 220px;
   background: #fff;
-  border-radius: 6px;
+  border-radius: 8px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   overflow: hidden;
   text-align: left;
   font-family: inherit;
+  transition: transform .18s ease;
 }
+.meal-card:hover { transform: translateY(-6px); }
 
 .thumb-wrap {
   position: relative;
   width: 100%;
-  height: 120px;
+  height: 130px;
   overflow: hidden;
 }
 .thumb-wrap img {
@@ -277,7 +255,6 @@ u{
   text-transform: uppercase;
 }
 
-/* info below thumbnail */
 .meal-info {
   padding: 10px;
 }
@@ -298,5 +275,24 @@ u{
   color: #fff;
   padding: 16px;
   background: #E85A0C;
-  border-radius: 6px;
+  border-radius: 6px;
+}
+
+/* responsive tweaks */
+@media (max-width: 620px) {
+  .search-area input { width: 220px; }
+  .meals-grid { justify-content: center; }
+  .cards-container { padding: 0 16px; }
+}
+
+.card h3 {
+  font-size: 18px;
+  margin: auto;
+  line-height: 1.2;
+  font-weight: 700;
+  color: whitesmoke; 
+  background-color: #E85A0C;
+  border-radius: 10px;
+
+  
 }

@@ -6,8 +6,6 @@
   <title>Meal Finder</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -50,32 +48,35 @@
 
   <!-- Optional overlay -->
   <div id="overlay" class="overlay" hidden></div>
-<!--search bar-->
-  <div class="search-banner">
-    <div class="search-area">
-        <input type="text" placeholder="Search recipes here...">
-        <button class="search-btn">
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-        <div id="searchResults"></div>
-         </div>
-        <h2 class="search-title">What are your favourite cuisines?</h2>
-        <p class="search-subtitle">Personalize your experience</p>
+
+  <!-- SEARCH BANNER -->
+  <section class="search-banner" role="region" aria-label="Search meals">
+    <div class="search-area" role="search">
+      <input id="searchInput" type="text" placeholder="Search recipes here..." aria-label="Search recipes">
+      <button id="searchBtn" class="search-btn" aria-label="Search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
     </div>
-    </div>
-    
+
+    <h2 class="search-title">What are your favourite cuisines?</h2>
+    <p class="search-subtitle">Personalize your experience</p>
+  </section>
+
+  <!-- MEALS (card above categories) -->
+  <section class="meals-section">
+    <h2 class="meals-title">Meals</h2>
+    <div id="mealsContainer" class="meals-grid" aria-live="polite"></div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <h1 class="head-title"><u>CATE</u>GORIES</h1>
+
+  <main class="container">
+    <div id="cardsContainer" class="cards-container" aria-label="Categories grid"></div>
+  </main>
 
 
-
-    <!--categories-->
-     <h1 class="head-title"> <u>CATE</u>GORIES</h1>
-     
-    <div class="container">
-
-        <div id="cardsContainer" class="cards-container"></div>
-   </div>
-</div>
-
+  
 
   <script src="./app.js"></script>
 </body>

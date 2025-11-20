@@ -2,43 +2,81 @@
 menuBtn.onclick = () => sideMenu.classList.add("open");
 closeBtn.onclick = () => sideMenu.classList.remove("open");
 
-//ASYNC FUNCTION
-async function loadCategories() {
-    const res = await fetch("https://www.themealdb.com/api/json/v1/1/categories.php");
-    const data = await res.json();
 
-    data.categories.forEach(cat => {
-        cardsContainer.innerHTML += `
-            <div class="card">
-                <img src="${cat.strCategoryThumb}">
-                <h3>${cat.strCategory}</h3>
-            </div>
-        `;
+// LOAD CATEGORY CARDS (to show under “CATEGORIES”)
+fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
+  .then(r => r.json())
+  .then(d => {
+    d.categories.forEach(c => {
+      cardsContainer.innerHTML += `
+        <div class="card">
+          <img src="${c.strCategoryThumb}">
+          <h3>${c.strCategory}</h3>
+        </div>
+      `;
     });
-}
+  });
 
-loadCategories();
-const input = document.querySelector(".search-area input");
-const btn = document.querySelector(".search-btn");
-const results = document.getElementById("searchResults");
 
-btn.onclick = function () {
+// WHEN MENU ITEM CLICKED → SHOW RELATED MEALS
+document.querySelectorAll("#sideMenu ul li").forEach(li => {
+  li.onclick = () => {
+    let cat = li.textContent.trim();
 
-    let food = input.value;
+    fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${cat}`)
+      .then(r => r.json())
+      .then(d => {
+        mealsContainer.innerHTML = "";    // clear old meals
 
-    fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=" + food)
-        .then(res => res.json())
-        .then(data => {
+        d.meals.slice(0,6).forEach(m => {
+          mealsContainer.innerHTML += `
+            <div class="meal-card">
+              <div class="thumb-wrap">
+                <img src="${m.strMealThumb}">
+                <span class="cat-badge">${cat}</span>
+              </div>
+              <div class="meal-info">
+                <h3 class="meal-title">${m.strMeal}</h3>
+              </div>
+            </div>
+          `;
+        });
+      });
 
-            results.innerHTML = ""; // clear old
+    sideMenu.classList.remove("open");  // close menu
+  };
+});
 
-            if (!data.meals) {
-                results.innerHTML = "No meal found!";
-                return;
-            }
 
-            // Show ONLY meal name (very simple)
-            results.innerHTML = data.meals[0].strMeal;
-        });
+// SEARCH → SHOW ONLY ONE MEAL
+searchBtn.onclick = () => {
+  let q = searchInput.value.trim();
 
+  fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=" + q)
+    .then(r => r.json())
+    .then(d => {
+      mealsContainer.innerHTML = "";
+
+      if (!d.meals) {
+        mealsContainer.innerHTML = "No meal found!";
+        return;
+      }
+
+      let m = d.meals[0];
+
+      mealsContainer.innerHTML = `
+        <div class="meal-card">
+          <div class="thumb-wrap">
+            <img src="${m.strMealThumb}">
+            <span class="cat-badge">${m.strCategory}</span>
+          </div>
+          <div class="meal-info">
+            <h3 class="meal-title">${m.strMeal}</h3>
+          </div>
+        </div>
+      `;
+    });
 };
+
+
+
