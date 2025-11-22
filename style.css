@@ -155,9 +155,8 @@ body {
 .head-title {
   height: 200px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 70px;
+
+  padding: 50px;
 }
 u { text-decoration-color: #E85A0C; }
 
