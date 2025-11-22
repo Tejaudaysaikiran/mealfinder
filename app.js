@@ -1,7 +1,9 @@
 // OPEN & CLOSE MENU
 menuBtn.onclick = () => sideMenu.classList.add("open");
 closeBtn.onclick = () => sideMenu.classList.remove("open");
-
+homeBtn.onclick = () => {
+  location.reload();
+};
 
 // LOAD CATEGORY CARDS (to show under “CATEGORIES”)
 fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
@@ -18,7 +20,7 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
   });
 
 
-// WHEN MENU ITEM CLICKED → SHOW RELATED MEALS
+// WHEN MENU ITEM CLICKED - SHOW RELATED MEALS
 document.querySelectorAll("#sideMenu ul li").forEach(li => {
   li.onclick = () => {
     let cat = li.textContent.trim();
@@ -48,7 +50,7 @@ document.querySelectorAll("#sideMenu ul li").forEach(li => {
 });
 
 
-// SEARCH → SHOW ONLY ONE MEAL
+// SEARCH  SHOW ONLY ONE MEAL
 searchBtn.onclick = () => {
   let q = searchInput.value.trim();
 

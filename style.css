@@ -17,6 +17,10 @@ body {
   padding: 0 16px;
 }
 
+#homeBtn {
+  cursor: pointer;
+}
+
 .left { display: flex; align-items: center; gap: 10px; font-weight: 700; }
 .left i { font-size: 20px; }
 .brand { letter-spacing: 0.6px; }
@@ -74,9 +78,6 @@ body {
   pointer-events: none;
 }
 .overlay.show { opacity: 1; pointer-events: auto; }
-
-/* search banner
-   NOTE: put your hero file in ./assets/hero.jpg (or change the filename below) */
 .search-banner {
   width: 100%;
   height: 400px;
