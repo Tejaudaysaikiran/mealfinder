@@ -170,6 +170,9 @@ body { font-family: Arial, sans-serif; background: #fff; color: #222; }
 /* category card */
 .card {
   background: white;
+  color: #E85A0C;
+  text-decoration-color: #E85A0C;
+  
   padding: 10px;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
