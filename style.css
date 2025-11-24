@@ -230,8 +230,16 @@ body { font-family: Arial, sans-serif; background: #fff; color: #222; }
 }
 
 /* paired measures list (measure + bold ingredient on one line) */
-.measure-box { border:1px solid #eee; padding:12px; border-radius:6px; background:#fff; }
-.measure-list { list-style:none; padding:0; margin:0; }
+.measure-box { border:1px solid #eee;
+padding:12px; 
+border-radius:6px; 
+background:#fff; 
+}
+
+.measure-list { list-style:none;
+  padding:0;
+  margin:0; 
+  }
 .measure-list li {
   margin:8px 0;
   line-height:1.2;
@@ -241,8 +249,16 @@ body { font-family: Arial, sans-serif; background: #fff; color: #222; }
 }
 
 /* measure text (first part) and ingredient name (bold) */
-.measure-list .measure-text { margin-right:8px; color:#333; display:inline-block; }
-.measure-list .ingredient-name { font-weight:700; color:#111; display:inline-block; }
+.measure-list .measure-text { margin-right:8px; 
+color:#333; 
+display:inline-block; 
+}
+
+.measure-list .ingredient-name { 
+  font-weight:700;
+  color:#111;
+  display:inline-block; 
+  }
 
 /* small screens */
 @media (max-width:720px) {
